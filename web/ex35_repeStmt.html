@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> jQ 반복문 </title>
+        <script src="jQuery.js"></script>
+        <script>
+            $(function(){
+                var dogs = [ 
+                    { name: "라이터", age: 2},
+                    { name: "라이따", age: 1},
+                    { name: "랴이땨", age: 0}
+                ];
+                $("#b1").click(function(){
+                    for (var i=0;i<dogs.length;i++){
+                        alert(dogs[i].name+" ("+dogs[i].age+"세)");
+                    }
+                });
+                
+                $("#b2").click(function(){
+                    for (var d of dogs){
+                        alert(d.name+" ("+d.age+"세)");
+                    }
+                });
+                
+                // for i, d in enum어쩌고하던그거
+                $("#b3").click(function(){
+                    // $.each(arr, ftn(index,value){});
+                    $.each(dogs,function(i,d){
+                        alert(dogs[i].name+" ("+d.age+"세)");
+                    });
+                    // JS컬렉션 탐색용 > JSON파싱때...
+                });
+                
+                $("#b4").click(function(){
+                    // 선택자 사용... > XML파싱때...
+                    $("button").each(function(i,b){
+                        // alert(i+", "+b);
+                        $(b).css("font-size", (4-i) * 10 +"pt");
+                    });
+                });
+
+                var csss = [ 
+                    { c: "#C19999", bgc:"#F2F2E8"},
+                    { c: "#A0CB8C", bgc:"#617555"},
+                    { c: "#707B8E", bgc:"#010101"}
+                ];
+                
+                $("#b5").click(function(){
+                    $("h1").each(function(i,h1){
+                        $(h1).css("color", csss[i]["c"]).css("background-color",csss[i]["bgc"]);
+                        
+                    });
+                });
+
+                $("#b6").click(function(){
+                    $("h1").each(function(i,h1){
+                        setTimeout(function(){
+                            $(h1).css("color", csss[i]["c"]).css("background-color",csss[i]["bgc"]);
+                        }, 2000*i);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <button id="b1"> for </button>
+        <button id="b2"> for-of </button>
+        <button id="b3"> for + for-of </button>
+        <br>
+        <button id="b4"> DOM 객체 탐색 </button>
+        <hr>
+        <h1>h1-1</h1>
+        <h1>h1-2</h1>
+        <h1>h1-3</h1>
+        <button id="b5">butten1</button>
+        <button id="b6">butten2</button>
+    </body>
+</html>
+
+
+

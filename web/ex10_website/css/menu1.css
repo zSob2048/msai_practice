@@ -1,0 +1,5 @@
+#classicMenu{width: 400px;background-color: #F2F2E8;color: #617555;border-spacing: 0px;}
+#classicMenu .dataTr{background-color: #FFFFFF;color: #6F9F68;cursor: pointer;
+}
+#classicMenu .dataTr:hover{color: #A0CB8C;}
+#classicMenu td{border-bottom: #6F9F68 solid 1px;}

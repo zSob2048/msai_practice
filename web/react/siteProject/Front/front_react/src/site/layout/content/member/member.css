@@ -1,0 +1,84 @@
+#signUpA {
+        border-spacing: 20px 20px;
+        width: 350px;
+}
+
+#sighUpA tr{
+        width: 100%;
+}
+#signUpA td{
+        font-size: 12pt;
+        font-family: "Anonymous";
+        height: 60px;
+        text-align: right;
+        vertical-align: top;
+}
+
+#signUpA h1{
+        font-size: 18pt;
+        font-family: "Sam3";
+}
+
+#signUpA a{
+        font-size: small;
+        color: #42524180;
+}
+
+#signUpA .normalI{
+        width: 90%;
+        border-bottom: #8a9a85 solid 1px ;
+        font-size: small;
+        color: #425241;
+        text-overflow: ellipsis;
+}
+
+#signUpA input:focus{
+        background-color: #edf1d5;
+}
+
+#signUpA input::placeholder{
+        font-size: small;
+        color: #42524180;
+               
+}
+
+.postNumI{
+        width: 45%;
+        border-bottom: #8a9a85 solid 1px ;
+        font-size: 12pt;
+        color: #425241;
+}
+
+#postNumB{
+        width: 45%;
+        color: #edf1d5;
+        background-color: #8a9a85;
+        border-radius: 3px;
+}
+
+.photoI{
+        width: 200px;
+        /* height: ; */
+        font-size: 8pt;
+        border: none;
+}
+
+.photoI::file-selector-button{
+        /* width: 60px; */
+        border: none;
+        color: #edf1d5;
+        background-color: #8a9a85;
+        border-radius: 3px;
+        font-size: small;       
+}
+
+#signUpB{
+        font-size: large;
+        color: #425241;
+        
+}
+
+#signUpB:hover{
+font-weight: bold;
+}
+

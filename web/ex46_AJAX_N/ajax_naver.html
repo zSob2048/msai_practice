@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> 기본틀 </title>
+    <script src="jQuery.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                $.ajax({
+                    // AJAX : 외부데이터 못가져옴
+                    // Cross-Domain AJAX : 외부 데이터 활용하는... 
+                    // 서버측에서 Access-Control-Allow-Origin 헤더를 세팅해뒀을경우만 가능
+                    // >> Proxy 서버 구현
+                    // url: "https://openapi.naver.com/v1/search/shop.xml",
+                    url: "http://IP:port/n.shop",
+                    data: {"q":$("input").val()},
+                    // beforeSend : function(reqq){
+                    //     reqq.setRequestHeader("X-Naver-Client-Id","");
+                    //     reqq.setRequestHeader("X-Naver-Client-Secret","");
+                    // },
+                    success: function (nxml) {
+                        $("table").empty(); // 검색마다 table 초기화
+                        $(nxml).find("item").each(function (i, itemm) {
+                        var ti = $(itemm).find("title").text();
+                        var im = $(itemm).find("image").text();
+                        var mn = $(itemm).find("mallName").text();
+                        var pr = $(itemm).find("lprice").text();
+                        
+                        var img = $("<img>").attr("src",im);
+                        
+                        var td1 = $("<td></td>").html(ti + "("+mn+ ")");
+                        var td2 = $("<td></td>").append(img);
+                        var td3 = $("<td></td>").text(pr+"원");
+
+                        var tr = $("<tr></tr>").append(td1,td2,td3,td4,td5);
+                        $("table").append(tr);
+
+                    });
+                    }
+                });
+            });
+            $("input").keyup(function(e){ // input에서 enter 눌러도 같은 효과내게...
+                if (e.keyCode == 13){
+                    // 강제 이벤트 발생
+                    $("button").trigger("click");
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <input><button> 검색 </button>
+    <hr>
+    <table border="1"></table>
+
+
+</body>
+
+</html>

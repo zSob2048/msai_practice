@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 기본틀 </title>
+        <style>
+            table{width: 300px;box-shadow: 3px 3px 3px #617555;margin-left: auto;margin-right: auto;border-spacing: 0px;}
+            th{font-size: 20pt;height: 60px;background-color: #A0CB8C;color: white;}
+            .td1{width: 40px;height: 40px;padding-left: 10px;}
+            .txtType{outline: none;/* 선택시 까만 테두리... */
+                text-align: center;width: 90%;height: 30px;border: none;border-bottom: #A0CB8C solid 2px;}
+            .txtType:focus{border-bottom: #617555 solid 2px;}
+            .txtType::placeholder{color: #A0CB8C;}
+            .btnType{width: 90%;margin: 20px;border: none;background-color: transparent;font-size: 15pt;cursor: pointer;color: #A0CB8C;font-weight: bolder;}
+            .selectType{outline: none;width: 90%;height: 30px;}
+            .selectType option{color: #6F9F68;}
+            .taType{width: 90%; outline: none; border: #A0CB8C solid 3px; height: 100px;resize: none;}
+            .taType:focus{border: #617555 solid 3px;}
+        </style>
+    </head>
+    <body>
+
+        <form action="http://195.168.9.202:2048/input.test">
+            <table>
+                <tr><th colspan="2"> 회원가입 </th></tr>
+                <tr>
+                    <td class="td1">ID</td>
+                    <td><input name="id" class="txtType" placeholder="ID"></td>
+                </tr>
+                <tr>
+                    <td class="td1">PW</td>
+                    <td><input name="pw" type="password" class="txtType" placeholder="PW"></td>
+                </tr>
+                
+                <tr>
+                    <td class="td1">선택1</td>
+                    <td>
+                        <input name="select1" type="radio" value="1" checked> 선택1 <br>
+                        <input name="select1" type="radio" value="2"> 선택2 <br>
+                        <input name="select1" type="radio" value="3"> 선택3 <br>
+                        <!-- : name이 같은 것 중에 1택(=중복 허용>name을 다르게) 
+                         checked > 기본선택
+                         value : 실제 전송값 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">선택2</td>
+                    <td>
+                        <select name="select2" class="selectType">
+                            <option value="1"> 선택1항 </option>
+                            <option value="2"> 선택2항 </option>
+                            <option value="3"> 선택3항 </option>
+                            <option value="4"> 선택4항 </option>
+                            <option value="5"> 선택5항 </option>
+                            <option value="6"> 선택6항 </option>
+                            <!-- value값 없을 시 option안의 값으로... -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">선택3</td>
+                    <td>
+                        <input name="select3" type="checkbox" value="1"> 중복선택1 <br>
+                        <input name="select3" type="checkbox" value="2"> 중복선택2 <br>
+                        <input name="select3" type="checkbox" value="3"> 중복선택3 <br>
+                        <input name="select3" type="checkbox" value="4"> 중복선택4 <br>
+                        <input name="select3" type="checkbox" value="5"> 중복선택5 <br>
+                        <input name="select3" type="checkbox" value="6"> 중복선택6 <br>
+                            <!-- 변수 1: 값 多 >> 주소에 불가능: POST방식으로만 가능 -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">자유기입</td>
+                    <td>
+                        <textarea name="freeSp" class="taType"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="signUp" class="btnType"> <br>
+                        <input type="reset" value="reset" class="btnType"> <br>
+                        <button class="btnType"> signUp </button> <br>
+                        <input type="image" src="myunn.png" width="100px"> <br>
+                        <input type="file">
+                        >> html5에서 type 다수 추가
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

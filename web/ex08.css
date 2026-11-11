@@ -1,0 +1,18 @@
+body{background-color: #F2F2E8;}
+div{border: #617555 5px double; 
+    width:300px;
+    margin-left: 30px;
+    padding: 30px;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    z-index: 99;
+} 
+h1{width: 150px;
+color: #A0CB8C;
+border: #6F9F68 10px dotted;
+padding-left: 40px;
+z-index: 1;}
+/* div{border-left: #6F9F68 5px double;}  */
+/* div{border-bottom: #6F9F68 5px double;}  */
+/* 색 / 두께 / 선종류(solid, double, dotted, dashed, inset, outset, ridge, groove, ...) */

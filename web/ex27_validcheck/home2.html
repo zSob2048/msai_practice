@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 입력 유효성 검사 </title>
+        <script src="zValidCheck.js"></script>
+        <!-- <script src="home.js"></script> -->
+        <script> 
+            function checkidd(){
+                var idd = document.idbox.id_in;
+
+                var str = "png, jpg".replace(" ","")
+                str = ".("+str.replace(",","|")+")$"
+                var type = new RegExp(str)
+                alert(type)
+                // const type = /\.(?:png|jpe?g)$/i;
+                alert(idd.value.match(type));
+                return (type).test(idd.value);
+            }
+        </script>
+    </head>
+    <body>
+        <form action="https://naver.com" onsubmit="return checkidd();" name="idbox">
+            id: <input name="id_in"><br>
+            <button> ID </button>
+        </form>
+
+
+    </body>
+</html>

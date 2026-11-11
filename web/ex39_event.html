@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> eve </title>
+        <script src="jQuery.js"></script>
+        <script>
+
+            function button_add(){
+                    $("body").append($("<button></button>").text("버튼").attr("onclick","button_add();"));
+                }
+
+            // $(function(){
+            //     $("button").click(function(){
+            //         $("body").append("<button>버튼</button>")
+            //     });
+            // });
+        </script>
+    </head>
+    <body>
+        <button onclick="button_add();">버튼</button>
+
+        추가한 DOM객체의 이벤트 처리 / 
+        함수에 파라메터 값 부여 >> jQ에서 불가(vJS)
+    </body>
+</html>

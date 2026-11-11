@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> MPJ </title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <link rel="stylesheet" href="css/index.css" />
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="titleP">
+            <div data-role="header" data-position="fixed">
+                <h1>쇼핑몰</h1>
+            </div>
+            <div data-role="content">
+                <a href="#menuP">
+
+                    <img src="myunn.png" id="title_img">
+                </a>
+            </div>
+        </div>
+        
+        <div data-role="page" id="menuP">
+            <div data-role="header" data-position="fixed">
+                <a href="#titleP" data-icon="arrow-l" data-transition="turn"> 뒤로 </a>
+                <h1>쇼핑몰</h1>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview">
+                    <li><a id="seller_warp" href="#sellerP">판매자 목록 </a></li>
+                    <li><a id="product_warp" href="#productP">상품 목록 </a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div data-role="page" id="sellerP">
+            <div data-role="header" data-position="fixed">
+                <a href="#menuP" data-icon="arrow-l" data-transition="turn"> 뒤로 </a>
+                <h1> 판매자 </h1>
+            </div>
+            <div data-role="content">
+                <input placeholder="이름" id="seller_nameI">
+                <input placeholder="생일" id="seller_bdayI">
+                <input placeholder="주소" id="seller_addrI">
+                <button id="seller_inputB">등록</button>
+                <hr>
+                <input placeholder="검색" id="seller_search">
+                <!-- <h1 fixed id="testA">테스트영역</h1> -->
+                <ul id="seller_listall" data-role="listview" data-inset="true">
+                    
+                </ul>
+                
+            </div>
+        </div>
+        <div data-role="page" id="productP">
+            <div data-role="header" data-position="fixed">
+                <a href="#menuP" data-icon="arrow-l" data-transition="turn"> 뒤로 </a>
+                <h1> 상품 </h1>
+            </div>
+            <div data-role="content">
+                <input placeholder="품명" id="product_nameI">
+                <input placeholder="가격" id="product_pricI">
+                <input placeholder="재고" id="product_stocI">
+                <input placeholder="판매자 번호" id="product_c_noI">
+                <button id="product_inputB">등록</button>
+                <hr>
+                <input placeholder="검색" id="product_search">
+                <ul id="product_listall" data-role="listview" data-inset="true">
+
+            </div>
+        </div>
+        <div data-role="page" id="seller_detailP">
+            <div data-role="header" data-position="fixed">
+                <a href="#sellerP" data-icon="arrow-l" data-transition="turn"> 뒤로 </a>
+                <h1> 판매자 정보 </h1>
+            </div>
+            <div data-role="content">
+                판매자 번호 <input id="seller_noU" readonly>
+                이름 <input id="seller_nameU">
+                생일 <input id="seller_bdayU" readonly>
+                주소 <input id="seller_addrU">
+
+
+                <button id="seller_updateB"> 수정 </button>
+                <button id="seller_deleteB"> 삭제 </button>
+
+            </div>
+        </div>            
+        <div data-role="page" id="product_detailP">
+            <div data-role="header" data-position="fixed">
+                <a href="#productP" data-icon="arrow-l" data-transition="turn"> 뒤로 </a>
+                <h1> 상품 정보 </h1>
+            </div>
+            <div data-role="content">
+                물품 번호 <input id="product_noU" readonly>
+                품명 <input id="product_nameU">
+                가격 <input id="product_pricU">
+                재고 <input id="product_stocU">
+                판매자 번호 <input id="product_c_noU" readonly>
+
+
+                <button id="product_updateB"> 수정 </button>
+                <button id="product_deleteB"> 삭제 </button>
+
+            </div>
+        </div>            
+    </body>
+</html>

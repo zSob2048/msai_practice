@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 입력 유효성 검사 </title>
+        <script>
+            // return true; : 기존 기능 이행
+            // return false; : 기존 기능 불이행
+            function checkval(){
+                var name_in = document.ff.prdt_name;
+                var pric_in = document.ff.prdt_pric;
+                var pw_in = document.ff.prdt_PW;
+                // 미기입
+                if (!name_in.value){alert("품명 필수");
+                    name_in.focus();
+                    return false;
+                }
+                if (!pric_in.value){alert("가격 필수");
+                    pric_in.focus();
+                    return false;
+                }
+                if (!pw_in.value){alert("PW 필수");
+                    pw_in.focus();
+                    return false;
+                }
+
+                // 최소글자수
+                if(name_in.value.length<3){
+                    alert("품명 3자 이상");
+                    name_in.value = ""; // 다시 입력하게 창 비움
+                    name_in.focus();
+                    return false;
+                }
+
+                // 중복검사 >> JS+DB? >> 없음
+
+                // 숫자 처리
+                if(isNaN(pric_in.value)){
+                    alert("숫자만 입력");
+                    pric_in.value = "";
+                    pric_in.focus();
+                    return false;
+                }
+                // isNaN 의 단점 : 띄어쓰기를 봐줌
+
+                // 조합(정규식)
+                var numSet = "0123456789";
+                var num0 = false;
+                var qweSet = "qwerty";
+                var qwe0 = false;
+
+                for(var i = 0;i<numSet.length;i++){
+                    if (pw_in.value.indexOf(numSet[i])!=-1){
+                        num0=true;
+                        break;
+                    }
+                }
+                for(var i = 0;i<qweSet.length;i++){
+                    if (pw_in.value.indexOf(qweSet[i])!=-1){
+                        qwe0=true;
+                        break;
+                    }
+                }
+
+                if (!num0 || !qwe0){
+                    alert("PW: 조합 확인");
+                    return false;
+                }
+
+                
+                
+                return true;
+            }
+
+
+        // input.valure >> 다른경우: 입력 내용
+        //                 파일타입: 경로+파일명 문자열
+
+        </script>
+
+    </head>
+    <body>
+        <form action="http://195.168.9.202:9999/product.reg" onsubmit="return checkval();" name="ff">
+            
+            품명: <input name="prdt_name" autofocusd maxlength="10"><br>
+            가격: <input name="prdt_pric"><br>
+            PW : <input name="prdt_PW"><br>
+
+            <button> 등록 </button>
+        </form>
+
+
+    </body>
+</html>

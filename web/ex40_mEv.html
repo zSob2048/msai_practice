@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> mouse event </title>
+        <style>
+            div{background-color: #F2F2E8;width: 300px;height: 100px;}
+            #trg{width: 80px; background-color: #F2F2E8;display: none;}
+        </style>
+        <script src="jQuery.js"></script>
+        <script>
+            $(function(){
+                // $("div").click(function(){
+                //     $("h1").text("클릭함")
+                // });
+                $("div").mousedown(function(eventobj){
+                    // $("h1").text("mouse down")
+                    $("h1").text(eventobj.button+": mouse down");
+                });
+                $("div").mouseup(function(eventobj){
+                    // $("h1").text("mouse up")
+                    $("h1").text(eventobj.button+": mouse up");
+                });
+                
+                $("html").mousemove(function(eventobj){
+                    $("img")
+                    .css("left",((eventobj.pageX+1)+"px"))
+                    .css("top",((eventobj.pageY+1)+"px"));
+                    $("h1").text(eventobj.pageX+", "+eventobj.pageY);
+                });
+
+                $(document).contextmenu(function(){
+                    // 우클릭 팝업메뉴
+                    return false; // >> 메뉴 안나옴
+                })
+                
+                $("html").mouseup(function(eventobj){
+                    // $("h1").text("mouse down")
+                    if (eventobj.button == 2){
+                        $("#trg")
+                        .css("left",((eventobj.pageX+1)+"px"))
+                        .css("top",((eventobj.pageY+1)+"px"))
+                        .show();
+
+                        // setTimeout(function(){
+                        //     $("#trg").hide();
+                        // },5000);
+                    } else {$("#trg").hide();}
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div></div>
+        <h1></h1>
+
+            div클릭시 h1에 클릭함 출력
+
+        <img src="myunn.png" width="50px" style="position: absolute;">
+
+        <table id="trg" style="position: absolute;">
+            <tr align="center"><td>
+                <a href="https://www.naver.com">메뉴1</a>
+            </td></tr>
+            <tr align="center"><td>
+                <a href="https://www.google.com">메뉴2</a>
+            </td></tr>
+            <tr align="center"><td>
+                <a href="https://www.daum.net">메뉴3</a>
+            </td></tr>
+        </table>
+    </body>
+</html>

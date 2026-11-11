@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 기본틀 </title>
+        <style>
+            body{background-color: #F2F2E8;}
+            canvas{background-color: #FFFFFF;}
+        </style>
+        <script src="jQuery.js"></script>
+        <script>
+            $(function(){
+                var paper = document.getElementById("cv");
+                var pen = paper.getContext("2d");
+
+                pen.fillStyle = "#A0CB8C";
+                pen.strokeStyle = "#6F9F68";
+                pen.lineWidth = 5;
+                
+                pen.shadowOffsetX = 3;
+                pen.shadowOffsetY = 3;
+                pen.shadowBlur = 5;
+                pen.shadowColor = "#6F9F68";
+                
+                var roop;
+                var x;
+                var y;
+                $("#cv").mousedown(function(){
+                    $("#cv").mousemove(function(e){
+                        x =e.pageX-12.5;
+                        y =e.pageY-12.5;
+                        var data 
+                        pen.fillRect(x,y,10,10);
+                        // 직접 작성한 방식과 다름 > 추후 확인
+                    });
+                });
+                $("#cv").mouseup(function(e){
+                    $("#cv").off("mousemove");
+                });
+                
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="cv" width= "500px" height="500px"></canvas>
+    <h1></h1>
+        
+    </body>
+</html>

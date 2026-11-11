@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> 기본틀 </title>
+    <script src="jQuery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+    <script>
+        $(function () {
+            
+            // var divvv = $("<div></div>").text("테스트용");
+            // var divvv2 = $("<div></div>").text("테스트2");
+            
+            // $(".slider").append(divvv);
+            // $(".slider").append(divvv2);
+            var s = $(".slider").bxSlider({auto:true,infiniteLoop: true});
+            $("button").click(function(){
+                var inputText = $("input").text();
+                $.ajax({
+                    url: "https://dapi.kakao.com/v3/search/book",
+                    data: { "query": inputText},
+                    beforeSend: function(req){
+                        req.setRequestHeader("Authorization","kakaoAK 어쩌고")
+                    },
+                    success: function(bData){
+                        $("table").empty();
+                        $(".slider").empty();
+                        $.each(bData.documents, function(i,b){
+                            var td1 = $("<td></td>").text(b.title+"("+b.price+"원)");
+                            var img = $("<img>").attr("src",b.thumbnail);
+                            var td2 = $("<td></td>").append(img);
+                            var tr = $("<tr></tr>").append(td2,td1);
+                            $("table").append(tr);
+                            var img2 = img.attr("title",b.title+"("+b.price+"원)");
+                        });
+                        s.reloadSlider();
+                    }
+                });
+            });
+                $("input").keyup(function(e){
+                    if (e.keyCode == 13){
+                        $("button").trigger("click");
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="slider">
+        <!-- <div align="center"><img src="myunn.png"></div> -->
+        <!-- <div align="center"> text slideeeeee </div> -->
+        <!-- <div align="center"><img src="myunnn.png"></div> -->
+    </div>
+
+
+</body>
+
+</html>

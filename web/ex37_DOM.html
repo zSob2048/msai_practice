@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 돔돔 </title>
+        <style>div{background-color: #F2F2E8;width: 300px;height: 100px;}</style>
+        <script src="jQuery.js"></script>
+        <script>
+            $(function(){
+                $("#b1").click(function(){
+                    $("a").text("<b>수정된 텍스트</b>");
+                    $("a").html("<b>수정된 텍스트</b>");
+                });
+                $("#b2").click(function(){
+                    alert($("a").text());
+                });
+                $("#b3").click(function(){
+                    $("a").text("구글로 이동");
+                    $("a").attr("href","https://www.google.com");
+                });
+                $("#b4").click(function(){
+                    alert($("a").attr("href"));
+                });
+                $("#b5").click(function(){
+                    $("a").attr("href","") // 속성값만 제거
+                    $("a").removeAttr("href") // 속성 자체 제거
+                });
+                $("#b6").click(function(){    
+                    // $("div").append($("<marquee></marquee>").attr("behavior","alternate").text("ㅋㅋ"));
+                    $("div").prepend($("<marquee></marquee>").attr("behavior","alternate").text("ㅋㅋ"));
+                });
+                $("#b7").click(function(){    
+                    // $("div").remove(); // div 자체 제거
+                    $("div").empty(); // div 내용물 제거
+                });
+
+
+                var k=0
+                setInterval(function(){
+                    k = ((k+1)%5)
+                    $("img").attr("src","cocos2d/hero_walk_0"+(k+1)+".png")
+                },200);
+                
+
+            });
+        </script>
+    </head>
+    <body>
+        <a href="https://www.naver.com"> 네이버로 이동 </a>
+        <hr>
+        <button id="b1">텍스트 수정</button>
+        <button id="b2">텍스트 확인</button>
+        <button id="b3">속성 수정</button>
+        <button id="b4">속성 확인</button>
+        <button id="b5">속성 삭제</button>
+        <br> 태그명 CRUD? >> 무의미<br>        
+        <button id="b6">DOM 객체 생성</button>
+        <button id="b7">DOM 객체 삭제</button>
+        <div>        </div>
+        <hr>
+        <img src="cocos2d/hero_walk_01.png">
+    </body>
+</html>

@@ -1,0 +1,45 @@
+#titleA{
+    width: 100%;
+    position: fixed;
+    background-color: #edf1d5;
+    /* background-color:#F2F2E880; */
+}
+
+#title{
+    width: 70% ;
+    height: 100px ;
+    /* background-color: #A0CB8C; */
+}
+
+#title a{
+    color: #758d60;
+    font-size: 30pt ;
+    font-family: "Sam3";
+}
+#menuA{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 100px;
+    background-color: #edf1d5;
+}
+
+#menu{
+    width:70%
+}
+
+#contentA{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #425241;
+    padding-top: 140px;
+}
+
+#menuA svg {
+    cursor: pointer;
+}
+
+#menuA svg path:hover{
+    fill:#425241
+}

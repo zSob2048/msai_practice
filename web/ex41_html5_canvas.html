@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 기본틀 </title>
+        <style>
+            body{background-color: #F2F2E8;}
+            canvas{background-color: #FFFFFF;}
+        </style>
+        <script src="jQuery.js"></script>
+        <script>
+            $(function(){
+                // html 5 기능(IE지원불가) + jQ 지원안됨
+                var paper = document.getElementById("cv");
+                var pen = paper.getContext("2d");
+
+                pen.save(); // 펜 상태 저장
+
+                // 직사각형
+                // pen.fillRect(10,20,30,40); // x, y, w, h
+                pen.fillStyle = "#A0CB8C";
+                pen.strokeStyle = "#6F9F68";
+                pen.lineWidth = 5;
+                // pen.fillRect(40,60,30,40);
+                
+                pen.shadowOffsetX = 3;
+                pen.shadowOffsetY = 3;
+                pen.shadowBlur = 5;
+                pen.shadowColor = "#6F9F68";
+
+                // 직선
+                // pen.beginPath();
+                // pen.moveTo(40,60);
+                // pen.lineTo(140,160);
+                // pen.closePath();
+                // pen.stroke();
+
+                // $("#cv").mousedown(function(e){
+                //     pen.fillRect((e.pageX-12.5),(e.pageY-12.5),10,10);
+                // });
+
+                // pen.restore(); // 저장된 펜 세팅 불러오기
+                // 이미지파일 그리기
+                // var a = new Image();
+                // a.src = "myunn.png";
+                // a.onload = function(){
+                //     // pen.drawImage(a, 100, 200); // 원본 사이즈
+                //     pen.drawImage(a, 100, 200, 144, 136.4);
+                // };
+
+                // setInterval(function(){
+                //     pen.fillStyle = "#00000010";
+                //     pen.fillRect(0,0,500,500);
+                //     var x = Math.random()*500;
+                //     var y = Math.random()*500;
+
+                //     // var r = Math.random()*255;
+                //     // var g = Math.random()*255;
+                //     // var b = Math.random()*255;
+                //     // var color = "rgb("+r+","+g+","+b+")";
+                //     var color = "rgb("+(x%255)+","+((x*y)%255)+","+(y%255)+")";
+
+                //     pen.fillStyle=color;
+                //     pen.fillRect(x, y, 10, 10);
+                // },20);
+                var roop;
+                var x;
+                var y;
+                $("#cv").mousedown(function(){
+                    $("#cv").mousemove(function(e){
+                        x =e.pageX-12.5;
+                        y =e.pageY-12.5;
+                        pen.fillRect(x,y,10,10);
+                    });
+                    // $("h1").text(x+","+y+", mouse down");
+                });
+                $("#cv").mouseup(function(e){
+                    // $("h1").text(x+","+y+", mouse up");
+                    $("#cv").off("mousemove");
+                });
+                
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="cv" width= "500px" height="500px"></canvas>
+    <h1></h1>
+        
+    </body>
+</html>

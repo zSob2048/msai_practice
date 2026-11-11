@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Anonymous" ;
+  src: url("./assets/AnonymousPro-Regular.ttf");
+}
+
+a {
+   text-decoration: none;
+   font-family: "Anonymous";
+}
+
+@font-face {
+  font-family: "Sam3";
+  src: url("./assets/Sam3KRFont.ttf");
+}
+
+input{
+    border: none;
+    outline: none;
+    font-family: "Anonymous";
+    background-color: transparent;
+}
+textarea{
+    border: none;
+    outline: none;
+    font-family: "Anonymous";
+    background-color: transparent;
+    resize: none;
+}
+
+button{
+    font-family: "Anonymous";
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+

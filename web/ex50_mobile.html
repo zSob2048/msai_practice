@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 기본틀 </title>
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+
+        <script>
+            $(function(){
+
+            });
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="home">
+            <div data-role="header" data-theme="e" data-position="fixed"> <h1> 헤더 : 1페이지 </h1></div>
+            <div data-role="content">
+                본문
+                <input data-theme="e">
+                <button data-theme="e">버튼</button>
+                테마 a~e까지 기본제공 
+                <a href="#p2"> 2페이지로 </a>
+                <a href="#p3" data-role="button" data-transition="flip"> 3페이지로 </a>
+            </div>
+            <div data-role="footer" data-theme="e" data-position="fixed"> <h2>하단부</h2> </div>
+        </div>
+        <div data-role="page" id="p2">
+            <div data-role="header" data-theme="e" data-position="fixed"> 
+                <h1> 2페이지 </h1>
+                <a href="#home" data-icon="home"> main </a>
+            </div>
+            <div data-role="content">
+            flip, turn, fade, slideup, slidedown, flow...
+            <a href="#home" data-role="button" data-transition="flow"> 홈 </a>
+            </div>
+        </div>
+        <div data-role="page" id="p3">
+            <div data-role="header" data-theme="e" data-position="fixed"> 
+                <h1> 3페이지 </h1>
+                <a href="#home" data-icon="arrow-l"> main </a>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-filter="true">
+                    <li data-role="list-divider"> 소제목1 </li>
+                    <li><a href="#li1"> 리스트1 </a> </li>
+                    <li> 리스트2 </li>
+                    <li> 리스트3 </li>
+                    <li data-role="list-divider"> 소제목2 </li>
+                    <li> 리스트4 </li>
+                    <li> 리스트5 </li>
+                    <li> 리스트6 </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="li1">
+            <div data-role="header" data-theme="e" data-position="fixed"> 
+                <h1> 리스트1 </h1>
+                <a href="#home" data-icon="arrow-l"> main </a>
+            </div>
+            <div data-role="content">
+                <input> <button> 등록 </button>
+                <ul data-role="listview" data-inset="true">
+                    <li> 리스트 깨짐 </li>
+                    <li> 리스트 깨짐 </li>
+                    <li> 리스트 깨짐 </li>
+                </ul>
+            </div>
+        </div>
+        
+    </body>
+</html>.

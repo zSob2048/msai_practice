@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> jQCSS </title>
+        <style> h1{color: #A0CB8C;} img{position: absolute; width:300px; transition : all 2.5s ease-in} body{background-color: #F2F2E8};</style>
+        <script src="jQuery.js"> </script>
+        <script>
+            // JS : 이벤트 처리, HTML DOM객체 동적으로 수정
+            $(function(){
+                $("#b1").click(function(){
+                    $("h1").css("color", "#A0CB8C");
+                });
+                
+                var num = 1;
+                $("#b2").click(function (){
+                    (num == 1) ? 
+                    $("h1").css("color", "#707B8E"):
+                    $("h1").css("color", "#C19999")
+                    num *= -1; 
+                });
+                    // $("h1").css("color") >> rgb(,,) 지정
+                    // true 사용 등...
+
+                $("#b3").click(function(){
+                    $("h1").css("background-color", "#F2F2E8").css("color", "#6F9F68");
+                });
+
+                var roop;
+                $("#b4").click(function(){
+                    // setTimeout(function(){
+                    roop = setInterval(function(){
+                        var x = Math.random() * 1000;
+                        var y = Math.random() * 600;
+                        $("img").css("left",x+"px").css("top",y+"px")
+                    }, 2500);
+                });
+
+                $("#b5").click(function(){
+                    clearInterval(roop);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1> 뭉 </h1>
+        <button id="b1"> reset </button>
+        <button id="b2"> 1: (-1)^n </button>
+        <button id="b3"> bgc </button>
+        <button id="b4"> start </button>
+        <button id="b5"> stop </button>
+        <br>
+        <img src="myunn.png">
+        
+
+        
+    </body>
+</html>

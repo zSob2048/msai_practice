@@ -1,0 +1,45 @@
+#loginSysA{
+    width: 200px;
+    height: 100px;
+    position: fixed;
+    top: 0px;
+    right: 10%;
+}
+
+#loginFormA{
+    height: 100%;
+    width: 100%;
+    
+}
+#loginNowA{
+    height: 100%;
+    width: 100%;
+}
+
+
+#loginFormA input{
+    border-bottom: #425241 solid 1px ;
+    width: 90%;
+    background-color: transparent;
+    color: #425241;   
+}
+#loginFormA input::placeholder{
+    color: #425241A0;
+}
+
+#loginFormA button{
+    color: #425241;
+}
+
+#loginNowA a{
+    display:inline-block;
+    width: 60%;
+    font-family: "Anonymous";
+    color: #425241;  
+}
+
+#loginNowA button{
+    color: #425241;
+    
+}
+

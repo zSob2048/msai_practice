@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> 기본틀 </title>
+        <script src="jQuery.js"></script>
+        <script> 
+            // // vanillaJS
+            // // 작업 형태: 함수 정의>DOM에 on-- 연결
+            // // DOM을 찾아가야함+같은함수를 여러군데 연결 > 불편있음
+            // // 변수 따로 밖에 쓰려면...
+            var inp; // 밖에서 미리 정의
+            function loaddd(){
+                inp = document.getElementById("inputt");
+            } // 변수 따로 밖에 쓰려면...
+            
+            function alertt_inp(){
+                // alert(document.getElementById("inputt").value);
+                alert(inp.value);
+            } 
+
+            // jQuery.js : JS전반적 라이브러리
+            // react.js : JS전반적 라이브러리 + OOP 라이브러리
+            // jQuery(선택자).이벤트(콜백함수);
+            //      jQuery를 $로 줄여쓰기 가능 >> $().ev(); 
+            //      다른 라이브러리와 중복될 수 있으므로 주의 (단독사용시 상관없음)
+            // 선택자 >> 변수명(기존js객체) or "CSS선택자"
+            // 이벤트 >> on(이벤트)
+            // $(inp)
+
+            // 콜백함수 / vJS포함 함수명 필요없으면 안써도 됨
+            
+            // 이벤트 예외 有
+            // ready : body의 load 이벤트와 같음 = main 역할
+            // $(document).ready(function (){ });
+            $(function(){
+                var inp = $("#inputt");
+                $("button").click(function (){
+                    alert(inp.val());
+                });
+            }); // 축약 가능
+            // $(()=>{}); // 신버전 JS
+
+        </script>
+    </head>
+    <body onload="loaddd();">
+        
+        인풋: <input id="inputt"><br>
+        <button onclick="alertt_inp();">vJS버튼</button>
+        <button >jQ버튼</button>
+
+        
+    </body>
+</html>

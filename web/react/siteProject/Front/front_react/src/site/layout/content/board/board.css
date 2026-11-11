@@ -1,0 +1,65 @@
+#boardA {
+    width: 600px;
+    /* border-bottom: #425241 solid 1px; */
+    border-spacing: 0px 10px;
+}
+
+#boardA tr{
+    width: 100%;
+    min-height: 100px;
+    vertical-align: top;    
+    
+}
+
+.textTable{
+    width: 100%;
+    /* background-color: #425241; */
+    border: none;
+}
+
+.boardTd{
+    border-top: #42524160 solid 1px;
+}
+
+#boardA td{
+    text-align: center;
+    padding-top: 10px;
+    /* background-color: #C19999; */
+    /* border: #42524160 solid 1px; */
+}
+
+
+
+#boardA textarea{
+    width: 90%;
+    min-height: 100px;
+    overflow:hidden;
+    field-sizing: content;
+    
+}
+#boardA a{
+    display:inline-block;
+    width: 90%;
+    /* background-color: #42524160; */
+    text-align: left;
+    font-family: "Anonymous";
+    font-size: small;
+}
+
+#boardA text{
+    display:inline-block;
+    width: 90%;
+    /* min-height: 40px; */
+    text-align: left;
+    font-size: small;
+}
+
+#boardA button{
+    display:inline-block;
+    width: 90%;
+    /* background-color: #42524160; */
+    text-align: left;
+    font-family: "Anonymous";
+    font-size: small;
+}
+

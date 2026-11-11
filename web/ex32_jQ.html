@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> jQ </title>
+        <script src="jQuery.js"></script>
+        <script>
+            $(function(){
+                // h1에 이벤트 발생 시 함수 호출하도록 연결 
+                //  >> 반복문의 경우 안에 적는게 적절
+                $("h1").dblclick(function(){
+                    for (var i = 0;i<3;i++){
+                    alert("aaaa");
+                    }   
+                    // h1 안에 h2 >> h1을 먼저 실행해야만 h2 연결됨
+                    $("h2").click(function(){
+                        alert("bbbb")
+                    });
+                });
+                var inp = $("input");
+                $("h3").click(function(){
+                    alert(inp.val());
+                });
+
+            });
+            // >> event-driven programming
+
+            // JS 함수 overloading가능
+            alert(inp.val());
+            $("input").val("aaaa");
+        </script>
+    </head>
+    <body>
+        <h1> h1 ; 더블클릭 </h1>
+        <h2> h2 ; 클릭 </h2>
+        <input>
+        <h3> h3 ; 클릭 </h3>
+        
+    </body>
+</html>

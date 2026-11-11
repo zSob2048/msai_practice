@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> CSS </title>
+        <style> 
+        div{font-size: 30pt; } 
+        #Aaa{color: #617555; } 
+        .Xxx{background-color: #F2F2E8; }
+        #Bbb, .Xxx{text-decoration: underline;}
+        div h1{text-shadow: 4px 3px 2px #707B8E /* x방향 y방향 블러 색상 */;color: #C19999;}
+        h1.Xxx{box-shadow: -4px -3px 5px #A0CB8C;}
+        .Xxx.Yyy.Zzz{cursor: pointer;/* 커서 올리면 손가락모양으로 */}
+        h2:hover{color:#6F9F68;/* 커서를 가져다두면 */}
+        h2:active{color:#A0CB8C;/* 누르고있는동안 */}
+        </style>
+    </head>
+    <body>
+        CSS(Cascading Style Sheet)
+        <br> HTML DOM 객체에 디자인을 입혀주는 언어
+        <br> .html 내부 / .css / DOM 객체 속성에 적용
+        
+        <br> CSSSelector { 속성: 값; 속성: 값; ... }
+        <br>
+
+        <div id="Aaa" class="Xxx"> div #Aaa .Xxx </div>
+        <div id="Bbb"> div #Bbb </div>
+
+        <h1 class="Xxx Yyy Zzz"> h1 .Xxx .Yyy .Zzz </h1>
+        <h1> h1 </h1>
+        
+        <div> div <h1> 내부 h1 </h1> div </div>
+        
+        <h2> h2 </h2>
+        
+
+        <hr>
+        id: 중복불가 / class: 중복가능
+
+    </body>
+</html>

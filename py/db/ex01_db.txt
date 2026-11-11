@@ -1,0 +1,131 @@
+PC> 작업용
+서버>   서버로 쓸 자리 > 방화벽 off
+        시작-cmd-ipconfig 쳐서 이더넷 어댑터 이더넷 IPv4 주소 확인
+
+
+//
+
+db파일 저장될 폴더 확보(서버로 쓸 자리에서)
+
+통신정보(IP) 확인
+195.168.9.238
+강의실 이상해서 1번씩 바뀜 안되면 IP 확인하기
+포트번호 : 1521 (이게 기본값)
+SID(=DB이름) : xe (이것또한기본값)
+그외 방화벽 off
+
+서버랑 통신 여부 확인(작업PC서~) 시작-cmd-ping 서버ip주소
+
+관리자로 접속(서버pc)
+시작-cmd-sqlplus / as sysdba
+        sqlplus : ODB접속때쓰는 프로그램명 
+        /       : OS계정써서
+
+11g문법으로 돌리기...
+alter session set "_ORACLE_SCRIPT"=true;
+
+create user (아이디) identified by (비밀번호); ( 관리자계정 생성 )
+grant connect, resource, dba to (아이디); ( role(권한) 부여 )
+
+//
+
+(작업PC) ODB접속해서 이거저거 하려면... instant client 설치
+접속용이니까 대충 최신버전!
+Basic Package + SQL*Plus Package + JDBC Supplement Package(JavaDBConnector - Python도 사용)
+받아서 한군데 뭉쳐서 압축해제
+
+instantclient 폴더로 가서 cmd
+sqlplus 아이디/비번@서버ip주소:포트번호/SID
+
+실 사용 계정 생성
+alter session set "_ORACLE_SCRIPT"=true; (문법돌리기 일단)
+create user (아이디) identified by (비밀번호); ( 계정 생성 )
+grant connect, resource to (아이디);
+
+create tablespace (tsp이름) datafile '서버PC폴더경로/???.dbf' size 500m; (tablespace 만들기)
+create tablespace dbtsp datafile 'C:/MSAIDB/dbtsp.dbf' size 500m;
+
+계정에 tablespace지정+용량제한해제
+alter user (아이디) default tablespace (tsp이름) quota unlimited on (tsp이름);
+alter user MSAIuser default tablespace dbtsp quota unlimited on dbtsp;
+
+exit (관리자모드 빠져나오기)
+
+//
+
+sqlplus 아이디/비번@서버IP주소:포트번호/SID
+sqlplus MSAIuser/2048@195.168.9.238:1521/xe
+
+///////////////////////////////////////////////////
+
+정형 데이터 <> 비정형 데이터
+
+RDBMS : 테이블을 나눠서 정의... (규칙에 맞게)  ; 비정형 데이터에 부적합
+- OracleDB, MySQL, MariaDB
+
+NoSQL : 비정형데이터에 적합(정형엔 굳이... ㄴㄴ)
+- MongoDB, Elasticsearch
+
+MongoDB > Node.js 회사에서 만든... 
+
+OracleDB: 무거움, On/Off 번거로움
+MongoDB : 가벼움, On/Off 용이
+
+: 오라클 서버 컴을 MongoDB서버로
+: 사용중인 노트북을 MongoDB서버로
+
+
+
+
+///////////////////////////////////////////////////
+
+
+(서버pc) MongoDB 설치된 위치로 가서 cmd (...\bin)
+mongod --dbpath 파일저장될폴더경로 --bind_ip_all
+
+(개발pc) MongoSh 압축 푼 위치로 가서 (...\bin)
+mongosh 서버주소ㅡㅐㅜmo
+
+
+//
+
+입력
+db.배열명.insertOne( { 필드 : 값 , 필드 : 값 , ...} );
+
+
+서치
+db.배열명.find( { 필드 : 값 });
+db.배열명.find( { 필드 : { 연산자 : 값 } });
+
+JS연산자
+>  : $gt  (greater than)
+>= : $gte (greater than equal)
+!= : $ne  (not equal)
+<= : $lte (less than equal)
+<  : $lt  (less than)
+
+(str) 포함 '%값%' : $regex
+
+and : $and
+or  : $or
+db.배열명.find( { $and : [js객체, js객체, ...] } );
+db.배열명.find( { $or : [ {필드 : { 연산자 : 값 }} , {필드 : { 연산자 : 값 }} ] } );
+db.product_1114.find({$and:[{p_price :{$gte:2000}},{p_price :{$lte:4000}}]});
+
+정렬
+db.배열명.find(js객체).sort({필드명:1,필드명:-1,...});
+(1: 오름차순, -1: 내림차순)
+db.product_1114.find().sort({_id:1});
+
+정렬 후 n번째...
+db.배열명.find(js객체).sort({필드명:1,필드명:-1,...}).skip(1).limit(3);
+( skip(부터).limit(까지) )
+
+수정
+db.배열명.updateMany({필드:값을},{$set: {필드:값으로}});
+역사> 후자의 js객체로 변환 : {id: A, ans: a} > updateMany{id: A},{ans:b} > {ans:b} 와 같이 객체 자체가 변함... 이었는데 요즘엔 에러
+
+삭제
+db.배열명.deleteMany(js객체);
+db.배열명.deleteMany(_id:{$regex:"A"}); 등...
+

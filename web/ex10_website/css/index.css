@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "sam3";
+    src: url("Sam3KRFont.ttf");
+} /* CSS3에 추가 > IE에선 깨짐 + 폰트파일 용량이 꽤 큼 >> 실무에선 보통 이미지로 작업...  */
+body{margin: 0px;
+padding: 0px;}
+
+a{ text-decoration: none;} /* 하이퍼링크 밑줄 제거용 */
+
+#site_top{ width: 100%; 
+    position: fixed; /* 상단 고정(스크롤해도...)  */
+background-color: #FFFFFF;} /* 여기에 투명을 넣겠다고 아 미감 개딸리네 진짜 */
+#site_title{font-family: "sam3"; width: 1200px; font-weight: bold;
+    height: 40px;color: #6F9F68;font-size: 30pt;
+}
+#site_mid{ border-top: #617555 double 1px;border-bottom: #617555 solid 1px;background-color: #F2F2E8;}
+#site_menu{ width: 1200px; font-weight: bold;
+height: 20px;}
+
+#site_menu a{color: #617555; margin-left: 20px;font-family: "sam3";
+transition: color 0.5s ease-in; /* *CSS3;  속도조절 > ease-in(점점 빨라짐) / ease-out(점점 느려짐) / linear 등 */
+}
+#site_menu a:hover{color: #F2F2E8; text-shadow: 0px 0px 5px #617555;}
+
+#site_mainA{width: 1200px; 
+    margin-left: auto; margin-right: auto;/* 가운데정렬 */
+    padding-top: 100px; /* 상단고정한만큼 내리기 */
+}
+
+/* 스크롤바 : 크롬 & 엣지만*/
+::-webkit-scrollbar{ display: none;} 

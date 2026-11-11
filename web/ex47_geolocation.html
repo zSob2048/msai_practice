@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title> 지금날씨는 </title>
+    <script src="jQuery.js"></script>
+    <script>
+        $(function () {
+            $("html").mousemove(function(eventobj){
+                    $("table")
+                    .css("left",((eventobj.pageX+1)+"px"))
+                    .css("top",((eventobj.pageY+1)+"px"));
+                });
+            // // GPS 있는 디바이스 : GPS
+            // // GPS 없는경우?     : IP주소 기반
+            // // 서버쓰는경우 >> 보안문제로 http는 안됨(https는 가능)
+            navigator.geolocation.getCurrentPosition(function (locc) {
+                // locc.coords.latitude, // 위도
+                // locc.coords.longitude, // 경도
+                // $("h1").text(locc.coords.latitude + ", " + locc.coords.longitude);
+                // JSON에 쓸 수 있는 약식 AJAX (XML불가능)
+                $.getJSON(
+                    "https://api.openweathermap.org/data/2.5/weather?lat=" + locc.coords.latitude + "&lon=" + locc.coords.longitude + "&appid=baff8f3c6cbc28a4024e336599de28c4&units=metric&lang=kr",
+
+                    function (locwat) {
+                        $("#desc").text(locwat.weather[0].description);
+                        
+                        $("#temp").text(locwat.main.temp+"℃");
+
+                        $("img").attr("src","https://openweathermap.org/img/wn/"+locwat.weather[0].icon+".png");
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1></h1>
+    <table style="position: absolute;">
+        <tr>
+            <td rowspan="2"><img></td>
+            <td id="desc"></td>
+        </tr>
+            <tr>
+                <td id="temp"></td>
+            </tr>
+    </table>
+    
+</body>
+
+</html>
