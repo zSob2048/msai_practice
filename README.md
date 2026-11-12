@@ -2,9 +2,12 @@
 
 수업(MS AI 과정) 중 학습용으로 작성한 코드와 필기 모음입니다.
 
-- `py/` : Python 기초, 데이터 분석(`bd/`), DB(`db/`), 미니 프로젝트
+- `py/` : Python 기초, 데이터 분석 및 AI, DB, 미니 프로젝트
+  - `bd/` : pandas / Matplotlib / Seaborn, NLTK / KoNLPy, OpenCV, scikit-learn, TensorFlow / PyTorch, MLflow
+  - `db/` : Oracle, MongoDB
 - `web/` : HTML / CSS / JavaScript / jQuery / Flask / FastAPI / Node.js / React 실습
 - `CHANG/`, `pj/` : 팀 프로젝트 개발 중 작성한 테스트 코드와 사본
+- `Scripts/` : DBeaver에서 작성한 SQL 스크립트
 
 ## 팀 프로젝트
 
